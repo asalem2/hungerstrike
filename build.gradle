@@ -11,7 +11,12 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+/*
+dependencies {
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile 'com.parse:parse-android:1.+'
+}
+*/
 allprojects {
     repositories {
         jcenter()
