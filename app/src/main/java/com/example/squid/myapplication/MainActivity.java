@@ -56,18 +56,20 @@ public class MainActivity extends ActionBarActivity {
     String responseJSONString = jsonResponse.getBody().toString();
     MyResponseObject myObject = gson.fromJson(responseJSONString, String.class);
 
-    //recipe clasify cuisine (spoonacular api)
+    //recipe clasify cuisine (recipe api)
     public static boolean Recipe_is_valid(String response){
-    // These code snippets use an open-source library. http://unirest.io/java
-        HttpResponse<JsonNode> response = Unirest.post("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/cuisine")
-                .header("X-Ma shape-Key", "OyXfl66F9YmshzYE9joLYoANUEw3p1hMCuEjsnn3WyBvd7nQVn")
+        // These code snippets use an open-source library. http://unirest.io/java
+        HttpResponse<JsonNode> response = Unirest.post("https://webknox-recipes.p.mashape.com/recipes/cuisine")
+                .header("X-Mashape-Key", "OyXfl66F9YmshzYE9joLYoANUEw3p1hMCuEjsnn3WyBvd7nQVn")
                 .header("Content-Type", "application/x-www-form-urlencoded")
+                .header("Accept", "application/json")
                 .field("ingredientList", "3 oz pork shoulder")
                 .field("title", "Pork roast with green beans")
                 .asJson();
 
     }
-    //recipe note_card (spoonacular api)
+    /*
+    //recipe note_card (recipe api)
     public static boolean Recipe_card(String response){
         // These code snippets use an open-source library. http://unirest.io/java
         HttpResponse<JsonNode> response = Unirest.post("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/visualizeRecipe")
@@ -86,14 +88,16 @@ public class MainActivity extends ActionBarActivity {
                 .field("title", "Pork tenderloin with green beans")
                 .asJson();
     }
+    */
     //recipe calorie_count (recipe api)
     public static boolean calorie_consumption(String response) {
-        // These code snippets use an open-source library. http://unirest.io/java
+// These code snippets use an open-source library. http://unirest.io/java
         HttpResponse<JsonNode> response = Unirest.get("https://webknox-recipes.p.mashape.com/recipes/mealplans/generate?targetCalories=2000&timeFrame=day")
-                .header("X-Mashape-Key", "PgAD8QQiT1msh480NXiurUetSpV8p1Lv5V8jsnXYxFzDObr54X")
+                .header("X-Mashape-Key", "OyXfl66F9YmshzYE9joLYoANUEw3p1hMCuEjsnn3WyBvd7nQVn")
                 .header("Accept", "application/json")
                 .asJson();
     }
+    /*
     //recipe ingredients (recipe api)
     public static boolean ingredients(String response ) {
         // These code snippets use an open-source library. http://unirest.io/java
@@ -102,6 +106,7 @@ public class MainActivity extends ActionBarActivity {
                 .header("Accept", "application/json")
                 .asJson();
     }
+    */
      /*
     public static boolean Recipe_is_valid(String response, String ip){
         System.out.println("Testing recaptcha");
